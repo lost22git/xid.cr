@@ -190,14 +190,14 @@ record Xid,
 
   def []?(index : Int)
     case index
-    when 0..4
+    when 0..3
       @time[index]
-    when 4..7
-      @machine_id[index]
-    when 7..9
-      @process_id[index]
-    when 9..12
-      @count[index]
+    when 4..6
+      @machine_id[index - 4]
+    when 7..8
+      @process_id[index - 7]
+    when 9..11
+      @count[index - 9]
     else
       nil
     end

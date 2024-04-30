@@ -25,13 +25,17 @@ describe Xid do
     xid2.should eq xid
   end
 
-  it "iterate" do
+  it "xid: index" do
     bytes = UInt8.static_array(
       0x4d, 0x88, 0xe1, 0x5b, 0x60, 0xf4, 0x86, 0xe4, 0x28, 0x41, 0x2d, 0xc9
     )
     xid = Xid.from_bytes bytes
     xid.each_with_index do |b, i|
       b.should eq bytes[i]
+    end
+
+    (0..11).each do |i|
+      xid[i].should eq bytes[i]
     end
   end
 
