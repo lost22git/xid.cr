@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.11.2">
-<meta name="crystal_docs.project_version" content="0.1.0">
+<meta name="crystal_docs.project_version" content="main-dev">
 <meta name="crystal_docs.project_name" content="xid">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="js/doc.js"></script>
 
   <meta name="repository-name" content="xid">
-  <title>Xid - xid 0.1.0</title>
+  <title>Xid - xid main-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        0.1.0
+        main-dev
       </span>
     </div>
   </div>
@@ -217,20 +217,6 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#%5B%5D%28index%3AInt%29-instance-method" class="signature"><strong>#[]</strong>(index : Int)</a>
-        
-          <div class="summary"><p>Returns the element at the given <em>index</em>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#%5B%5D%3F%28index%3AInt%29-instance-method" class="signature"><strong>#[]?</strong>(index : Int)</a>
-        
-          <div class="summary"><p>Returns the element at the given <em>index</em>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#as_bytes%3ABytes-instance-method" class="signature"><strong>#as_bytes</strong> : Bytes</a>
         
           <div class="summary"><p><code><a href="Xid.html">Xid</a></code> <strong>read only</strong> bytes view</p></div>
@@ -272,13 +258,6 @@
         <a href="#process_id%3AUInt16-instance-method" class="signature"><strong>#process_id</strong> : UInt16</a>
         
           <div class="summary"><p>resolve process id from <code><a href="Xid.html">Xid</a></code></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#size-instance-method" class="signature"><strong>#size</strong></a>
-        
-          <div class="summary"><p>Returns the number of elements in this container.</p></div>
         
       </li>
     
@@ -503,72 +482,6 @@ xid.debug</code></pre>
       </div>
     </div>
   
-    <div class="entry-detail" id="[](index:Int)-instance-method">
-      <div class="signature">
-        
-        def <strong>[]</strong>(index : Int)
-
-        <a class="method-permalink" href="#%5B%5D%28index%3AInt%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-            <div class="doc-inherited">
-              Description copied from module Indexable(UInt8)
-            </div>
-          
-          <p>Returns the element at the given <em>index</em>.</p>
-<p>Negative indices can be used to start counting from the end of the array.
-Raises <code>IndexError</code> if trying to access an element outside the array's range.</p>
-<pre><code class="language-crystal">ary <span class="o">=</span> [<span class="s">&#39;a&#39;</span>, <span class="s">&#39;b&#39;</span>, <span class="s">&#39;c&#39;</span>]
-ary[<span class="n">0</span>]  <span class="c"># =&gt; &#39;a&#39;</span>
-ary[<span class="n">2</span>]  <span class="c"># =&gt; &#39;c&#39;</span>
-ary[<span class="n">-1</span>] <span class="c"># =&gt; &#39;c&#39;</span>
-ary[<span class="n">-2</span>] <span class="c"># =&gt; &#39;b&#39;</span>
-
-ary[<span class="n">3</span>]  <span class="c"># raises IndexError</span>
-ary[<span class="n">-4</span>] <span class="c"># raises IndexError</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="[]?(index:Int)-instance-method">
-      <div class="signature">
-        
-        def <strong>[]?</strong>(index : Int)
-
-        <a class="method-permalink" href="#%5B%5D%3F%28index%3AInt%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-            <div class="doc-inherited">
-              Description copied from module Indexable(UInt8)
-            </div>
-          
-          <p>Returns the element at the given <em>index</em>.</p>
-<p>Negative indices can be used to start counting from the end of the array.
-Returns <code>nil</code> if trying to access an element outside the array's range.</p>
-<pre><code class="language-crystal">ary <span class="o">=</span> [<span class="s">&#39;a&#39;</span>, <span class="s">&#39;b&#39;</span>, <span class="s">&#39;c&#39;</span>]
-ary[<span class="n">0</span>]?  <span class="c"># =&gt; &#39;a&#39;</span>
-ary[<span class="n">2</span>]?  <span class="c"># =&gt; &#39;c&#39;</span>
-ary[<span class="n">-1</span>]? <span class="c"># =&gt; &#39;c&#39;</span>
-ary[<span class="n">-2</span>]? <span class="c"># =&gt; &#39;b&#39;</span>
-
-ary[<span class="n">3</span>]?  <span class="c"># nil</span>
-ary[<span class="n">-4</span>]? <span class="c"># nil</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="as_bytes:Bytes-instance-method">
       <div class="signature">
         
@@ -699,29 +612,6 @@ puts xid.machine_id</code></pre>
 <p>Example:</p>
 <pre><code class="language-crystal">xid <span class="o">=</span> <span class="t">Xid</span>.generate
 puts xid.process_id</code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="size-instance-method">
-      <div class="signature">
-        
-        def <strong>size</strong>
-
-        <a class="method-permalink" href="#size-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-            <div class="doc-inherited">
-              Description copied from module Indexable(UInt8)
-            </div>
-          
-          <p>Returns the number of elements in this container.</p>
         </div>
       
       <br/>

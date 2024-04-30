@@ -180,14 +180,20 @@ record Xid,
     puts "XID count".ljust(15) + " : " + count().inspect
   end
 
+  # :nodoc:
+  #
   def size
     12
   end
 
+  # :nodoc:
+  #
   def [](index : Int)
     self[index]? || raise IndexError.new
   end
 
+  # :nodoc:
+  #
   def []?(index : Int)
     case index
     when 0..3
@@ -204,6 +210,7 @@ record Xid,
   end
 
   # :nodoc:
+  #
   def unsafe_fetch(index : Int)
     pointerof(@time).as(UInt8*)[index]
   end
