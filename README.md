@@ -1,5 +1,7 @@
 # xid for crystal lang
 
+[API DOC](https://lost22git.github.io/xid.cr)
+
 ## Resources:
 
 - [xid go](https://github.com/rs/xid)
