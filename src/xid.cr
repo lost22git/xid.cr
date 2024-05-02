@@ -17,7 +17,7 @@ alias B4 = StaticArray(UInt8, 4)
 alias B3 = StaticArray(UInt8, 3)
 alias B2 = StaticArray(UInt8, 2)
 
-class Error < Exception
+class XidError < Exception
 end
 
 record Xid,
@@ -84,7 +84,7 @@ record Xid,
   # ```
   def self.from_s(base32 : String) : Xid
     base32 = base32.downcase
-    raise Error.new("XID: not a valid base32 string") unless base32.matches_full? /[0-9a-v]{20}/
+    raise XidError.new("XID: not a valid base32 string") unless base32.matches_full? /[0-9a-v]{20}/
     raw = base32.to_slice
     base32_decode(raw).unsafe_as Xid
   end
@@ -285,7 +285,7 @@ private def load_machine_id : B3
   machine_id = {% if flag?(:linux) %}
                  load_machine_id_on_linux
                {% else %}
-                 raise Error.new("XID: unimplemented on the platform")
+                 raise XidError.new("XID: unimplemented on the platform")
                {% end %}
   sum = md5sum machine_id
   UInt8.static_array(sum[0], sum[1], sum[2])
@@ -311,7 +311,7 @@ private def load_machine_id_on_linux : Bytes
       puts "XID: failed to load machine id, read `#{path}` failed, trying next path"
     end
   end
-  raise Error.new("XID: failed to load machine id")
+  raise XidError.new("XID: failed to load machine id")
 end
 
 private def load_process_id : B2
